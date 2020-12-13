@@ -11,9 +11,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import fr.Airweb.news.database.news.News
 import fr.Airweb.news.ui.newsList.NewsListFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NewsListFragment.OnNewsListFragmentInteractionListener {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -35,5 +36,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onNewsListFragmentInteraction(item: News) {
+        TODO("Not yet implemented")
     }
 }
