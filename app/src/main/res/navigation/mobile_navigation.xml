@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_news_list">
+
+    <fragment
+        android:id="@+id/nav_news_list"
+        android:name="fr.Airweb.news.ui.newsList.NewsListFragment"
+        android:label="@string/menu_news"
+        tools:layout="@layout/news_list_fragment" >
+        <!--<action
+            android:id="@+id/action_nav_my_tests_to_nav_test_candidats"
+            app:destination="@id/nav_test_candidats" />-->
+    </fragment>
+
+
+</navigation>
