@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Airweb News</string>
+
+    <!--Menu-->
+    <string name="menu">Menu</string>
+    <string name="menu_news">News</string>
+    <string name="menu_contact">Contact</string>
+
+</resources>
