@@ -25,12 +25,16 @@ class DataRepository() {
 
     //News
 
-    fun getNews(): LiveData<List<News>> {
-        return mDatabase.newsDao().getCampaigns()
+    fun getNews(idNews: Int): LiveData<News> {
+        return mDatabase.newsDao().getNews(idNews)
     }
 
-    fun getNews(idCampaign: Int): LiveData<News> {
-        return mDatabase.newsDao().getCampaign(idCampaign)
+    fun getListNewsByTypeAndOrderBy(type: String, orderBy: String): LiveData<List<News>> {
+        var order = "news_title"
+        if (orderBy == "date") {
+            order = "news_date"
+        }
+        return mDatabase.newsDao().getListNewsByTypeAndOrderBy(type, order)
     }
 
     suspend fun insertNews(campaign: News) {

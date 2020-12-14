@@ -6,4 +6,17 @@
     <string name="menu_news">News</string>
     <string name="menu_contact">Contact</string>
 
+    <!--Parameters-->
+    <string name="parameters">Paramètres</string>
+    <string name="type_sort">Trier par type</string>
+    <string name="news">News</string>
+    <string name="hot">Hot</string>
+    <string name="actualite">Actualité</string>
+    <string name="order_by">Trier par :</string>
+    <string name="date">Date</string>
+    <string name="title">Titre</string>
+    <string name="order_direction">Par ordre :</string>
+    <string name="asc">Ascendant</string>
+    <string name="desc">Descendant</string>
+
 </resources>

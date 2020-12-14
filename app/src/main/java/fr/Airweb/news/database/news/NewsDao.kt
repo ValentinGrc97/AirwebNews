@@ -10,10 +10,16 @@ import androidx.room.Query
 interface NewsDao {
 
     @Query("SELECT * from news_table ORDER BY news_id ASC")
-    fun getCampaigns(): LiveData<List<News>>
+    fun getListNews(): LiveData<List<News>>
 
     @Query("SELECT * from news_table WHERE news_id = :news_id")
-    fun getCampaign(news_id: Int): LiveData<News>
+    fun getNews(news_id: Int): LiveData<News>
+
+    @Query("SELECT * from news_table WHERE news_type = :news_type")
+    fun getListNewsByType(news_type: String): LiveData<List<News>>
+
+    @Query("SELECT * from news_table WHERE news_type = :news_type ORDER BY :orderBy")
+    fun getListNewsByTypeAndOrderBy(news_type: String, orderBy: String): LiveData<List<News>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(news: News)

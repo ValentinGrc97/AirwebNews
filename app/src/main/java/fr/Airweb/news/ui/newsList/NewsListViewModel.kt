@@ -1,6 +1,7 @@
 package fr.Airweb.news.ui.newsList
 
 import android.app.Application
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -28,9 +29,9 @@ class NewsListViewModel(application: Application) : AndroidViewModel(application
         requestNews()
     }
 
-    fun getNews(): LiveData<List<News>> {
+    fun getListNewsByTypeAndOrderBy(type: String, orderBy: String): LiveData<List<News>> {
 
-        return repository.getNews()
+        return repository.getListNewsByTypeAndOrderBy(type, orderBy)
     }
 
     fun requestNews() {
