@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), NewsListFragment.OnNewsListFragmentInt
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_news_list, R.id.nav_contacts),
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_news_list, R.id.nav_contact),
             drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
