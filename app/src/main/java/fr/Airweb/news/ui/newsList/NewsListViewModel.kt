@@ -34,6 +34,11 @@ class NewsListViewModel(application: Application) : AndroidViewModel(application
         return repository.getListNewsByTypeAndOrderBy(type, orderBy)
     }
 
+    fun getListNewsByName(name: String, sortType: String): LiveData<List<News>> {
+
+        return repository.getListNewsByName(name, sortType)
+    }
+
     fun requestNews() {
 
         val okHttpClient = OkHttpClient.Builder()

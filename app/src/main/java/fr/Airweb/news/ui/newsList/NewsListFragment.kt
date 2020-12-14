@@ -4,9 +4,10 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import fr.Airweb.news.R
 import fr.Airweb.news.adapter.NewsRecyclerViewAdapter
 import fr.Airweb.news.database.news.News
 import kotlinx.android.synthetic.main.news_list_fragment.*
+
 
 class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
@@ -34,6 +36,15 @@ class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         swipe_container_news.setOnRefreshListener(this)
+        et_search.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                search(p0.toString())
+            }
+        })
     }
 
     override fun onRefresh() {
@@ -70,6 +81,14 @@ class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                 adapter = NewsRecyclerViewAdapter(news, listener)
             }
         }
+    }
+
+    private fun search(text: String) {
+        sortType = sharedPreferences.getString("sort_type", "news").toString()
+        newsListViewModel.getListNewsByName(text, sortType)
+            .observe(viewLifecycleOwner, Observer { news ->
+                if (news.isNotEmpty()) updateAdapter(news)
+            })
     }
 
     override fun onAttach(context: Context) {

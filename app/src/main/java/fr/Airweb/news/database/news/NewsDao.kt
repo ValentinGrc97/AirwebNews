@@ -21,6 +21,10 @@ interface NewsDao {
     @Query("SELECT * from news_table WHERE news_type = :news_type ORDER BY :orderBy")
     fun getListNewsByTypeAndOrderBy(news_type: String, orderBy: String): LiveData<List<News>>
 
+    @Query("SELECT * from news_table WHERE news_title LIKE :name AND news_type = :sortType")
+    fun getListNewsByName(name: String, sortType: String): LiveData<List<News>>
+
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(news: News)
 

@@ -37,6 +37,10 @@ class DataRepository() {
         return mDatabase.newsDao().getListNewsByTypeAndOrderBy(type, order)
     }
 
+    fun getListNewsByName(name: String, sortType: String): LiveData<List<News>> {
+        return mDatabase.newsDao().getListNewsByName("$name%", sortType)
+    }
+
     suspend fun insertNews(campaign: News) {
         mDatabase.newsDao().insert(campaign)
     }
