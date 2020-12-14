@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.AirwebNews" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#004B93</item>
-        <item name="colorPrimaryDark">#004B93</item>
-        <item name="colorAccent">#ff7C9DB7</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

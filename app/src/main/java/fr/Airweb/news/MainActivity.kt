@@ -11,9 +11,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import fr.Airweb.news.database.news.News
 import fr.Airweb.news.ui.newsList.NewsListFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NewsListFragment.OnNewsListFragmentInteractionListener {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_news_list, R.id.nav_contacts),
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_news_list, R.id.nav_contact),
             drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -35,5 +36,11 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onNewsListFragmentInteraction(item: News) {
+        val bundle = Bundle()
+        bundle.putInt("id", item.nid)
+        navController.navigate(R.id.nav_news_description, bundle)
     }
 }
