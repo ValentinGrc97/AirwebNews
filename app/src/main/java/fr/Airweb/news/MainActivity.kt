@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity(), NewsListFragment.OnNewsListFragmentInt
     }
 
     override fun onNewsListFragmentInteraction(item: News) {
-        TODO("Not yet implemented")
+        val bundle = Bundle()
+        bundle.putInt("id", item.nid)
+        navController.navigate(R.id.nav_news_description, bundle)
     }
 }

@@ -36,6 +36,10 @@ class NewsRecyclerViewAdapter(private val mValues: List<News>,
         Picasso.with(holder.mImage.context).load(mValues[position].picture).into(holder.mImage)
         holder.mTitle.text = mValues[position].title
         holder.mContent.text = mValues[position].content
+        with(holder.mView) {
+            tag = mValues[position]
+            setOnClickListener(mOnClickListener)
+        }
     }
 
     override fun getItemCount(): Int = mValues.count()

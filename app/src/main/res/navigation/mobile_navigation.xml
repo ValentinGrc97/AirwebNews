@@ -10,10 +10,16 @@
         android:name="fr.Airweb.news.ui.newsList.NewsListFragment"
         android:label="@string/menu_news"
         tools:layout="@layout/news_list_fragment" >
-        <!--<action
-            android:id="@+id/action_nav_my_tests_to_nav_test_candidats"
-            app:destination="@id/nav_test_candidats" />-->
+        <action
+            android:id="@+id/action_nav_news_list_to_nav_news_description"
+            app:destination="@id/nav_news_description" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_news_description"
+        android:name="fr.Airweb.news.ui.newsDescription.NewsDescriptionFragment"
+        android:label="@string/news_description"
+        tools:layout="@layout/news_description_fragment" />
 
     <fragment
         android:id="@+id/nav_parameters"

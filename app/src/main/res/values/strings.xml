@@ -20,4 +20,7 @@
     <string name="desc">Descendant</string>
     <string name="search">Search</string>
 
+    <!--News Description-->
+    <string name="news_description">Description News</string>
+
 </resources>
