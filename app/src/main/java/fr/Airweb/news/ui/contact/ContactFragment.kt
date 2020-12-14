@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import fr.Airweb.news.R
 import kotlinx.android.synthetic.main.contact_fragment.*
 
-
 class ContactFragment: Fragment() {
 
     private lateinit var contactViewModel: ContactViewModel

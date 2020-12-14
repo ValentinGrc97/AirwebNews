@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import fr.Airweb.news.R
 import kotlinx.android.synthetic.main.parameters_fragment.*
-import java.util.*
 
 class ParametersFragment : Fragment() {
 

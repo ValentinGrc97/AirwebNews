@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +18,6 @@ import fr.Airweb.news.adapter.NewsRecyclerViewAdapter
 import fr.Airweb.news.database.news.News
 import kotlinx.android.synthetic.main.news_list_fragment.*
 
-
 class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var newsListViewModel: NewsListViewModel
@@ -27,6 +25,7 @@ class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     private lateinit var sharedPreferences: SharedPreferences
     private var sortType = "news"
     private var orderBy = "date"
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         newsListViewModel = ViewModelProvider(this).get(NewsListViewModel::class.java)
@@ -98,7 +97,7 @@ class NewsListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             listener = context
         }
         else {
-            throw RuntimeException("$context must implement OnCampaignListFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnNewsListFragmentInteractionListener")
         }
     }
 
